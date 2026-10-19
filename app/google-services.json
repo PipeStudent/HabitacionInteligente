@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "302726214571",
+    "project_id": "habitacion-inteligente-c7310",
+    "storage_bucket": "habitacion-inteligente-c7310.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302726214571:android:0865bf1f0aab18540918ee",
+        "android_client_info": {
+          "package_name": "com.felipe.habitacioninteligente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoWKGWOSRVBtieBwEfFFaJCMW4aciagss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

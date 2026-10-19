@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="20dp">
+    <TextView android:text="Conexión MQTT (WiFi)" android:textSize="22sp" android:textStyle="bold"
+        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/etHost" android:hint="Broker (host)" android:inputType="textUri"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/etPort" android:hint="Puerto (8883 TLS)" android:inputType="number"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/etMqttUser" android:hint="Usuario MQTT (opcional)" android:inputType="text"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/etMqttPass" android:hint="Contraseña MQTT (opcional)" android:inputType="textPassword"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText android:id="@+id/etPrefix" android:hint="Prefijo de topics (ej. habitacion_felipe_01/)" android:inputType="text"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/swTls"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Usar TLS (recomendado)" />
+    <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:text="Guardar y reconectar" />
+</LinearLayout>
+</ScrollView>

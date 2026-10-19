@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+    }
+
+    // Cada usuario se crea solo como VIEWER; solo un ADMIN puede cambiar roles.
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'VIEWER';
+      allow update: if isAdmin();
+    }
+    // Historial de sensores: lo escribe el ADMIN, lo leen todos los autenticados.
+    match /readings/{id} {
+      allow read: if signedIn();
+      allow create: if isAdmin();
+    }
+    // Bitacora: cada usuario solo registra eventos con su propio correo.
+    match /events/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.user == request.auth.token.email;
+    }
+  }
+}
